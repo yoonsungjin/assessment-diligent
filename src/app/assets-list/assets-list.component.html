@@ -1,0 +1,81 @@
+<mat-accordion>
+  <mat-expansion-panel
+    class="mat-elevation-z0"
+    [togglePosition]="'before'"
+    (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Add Assets
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <form [formGroup]="assetsForm" #formDirective="ngForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput [(ngModel)]="asset.name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <input formControlName="description" matInput [(ngModel)]="asset.description">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Quantity</mat-label>
+          <input formControlName="quantity" matInput type="number" [(ngModel)]="asset.quantity">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Select status</mat-label>
+          <mat-select formControlName="status" [(ngModel)]="asset.status">
+            <mat-option value="Online">Online</mat-option>
+            <mat-option value="Pending">Pending</mat-option>
+            <mat-option value="Offline">Offline</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-flat-button color="primary" (click)="addAssets()">ADD</button>
+      </form>
+    </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+<div class="container">
+  <div class="table">
+    <mat-form-field appearance="outline" *ngIf="!panelOpenState">
+      <mat-label>Search table</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input>
+      <mat-icon svgIcon="magnify" matPrefix style="margin-right: 5px"></mat-icon>
+    </mat-form-field>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> <a href="#">{{element.name}}</a> </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Qunatity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

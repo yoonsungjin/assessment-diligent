@@ -1,0 +1,58 @@
+table {
+  width: 100%;
+  border: solid;
+  border-width: 2px;
+  border-color:rgba(10, 10, 10, 0.035);
+  border-radius: 15px;
+}
+
+mat-accordion {
+  width: 500px;
+  background-color: rgba(246, 244, 251, 0.723)
+}
+
+.mat-expansion-panel-header,
+.mat-expansion-panel-header:hover,
+.mat-expansion-panel-body,
+.mat-expansion-panel-header.mat-expansion-toggle-indicator-before {
+  background: rgba(246, 244, 251, 0.723);
+  padding-left: 30px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  color:rgb(133, 137, 169)
+}
+
+.mat-flat-button.mat-primary {
+  height: 50px;
+  padding-top: 8px;
+  background-color: rgb(133, 137, 169);
+  text-align: center;
+}
+
+mat-form-field {
+  margin-right: 10px;
+  border-color: black;
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.mat-row:nth-child(even){
+  background-color: rgb(243, 239, 239);
+}
+
+.mat-row:nth-child(odd){
+  background-color: white;
+}
+
+.mat-header-cell {
+  background: rgb(243, 239, 239);
+  font-weight: bold;
+  font-size: 15px;
+}
