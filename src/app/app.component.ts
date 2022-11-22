@@ -16,11 +16,11 @@ export class AppComponent {
   ) {
     this.matIconRegistry.addSvgIcon(
       'magnify',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('https://gist.githubusercontent.com/mikrotron/683a95f0e88d33474226d29905de7ed6/raw/408d5b067a64550754182c24177c879ba8ad1828/magnify.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons/magnify.svg')
     );
     this.matIconRegistry.addSvgIcon(
       'logo',
-      this.domSanitizer.bypassSecurityTrustResourceUrl('https://gist.githubusercontent.com/mikrotron/683a95f0e88d33474226d29905de7ed6/raw/408d5b067a64550754182c24177c879ba8ad1828/logo.svg')
+      this.domSanitizer.bypassSecurityTrustResourceUrl('assets/icons//logo.svg')
     );
 
   }
